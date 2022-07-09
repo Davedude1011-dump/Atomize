@@ -311,3 +311,40 @@ body {
     bottom: 0;
     left: 0;
 }
+
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.atomId {
+    font-size: 50px;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% { 
+        transform: rotate(360deg);
+    }
+}
+
+.HydrogenImg {
+    animation: rotate 5s linear infinite;
+    animation-play-state: paused;
+    height: 100%;
+}
+
+.hydrogen {
+    position: absolute;
+    width: 142px;
+    height: 142px;
+    top: 0;
+    left: 0;
+}
+.hydrogen:hover > .HydrogenImg {
+    animation-play-state: running;
+}
