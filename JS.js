@@ -2,6 +2,8 @@ function closeAll() {
   document.getElementById("introPage").style.display = "none"
   document.getElementById("mainPage").style.display = "none"
   document.getElementById("gamePage").style.display = "none"
+  document.getElementById("whatIsThisPlacePage").style.display = "none"
+  document.getElementById("tutorialScreen").style.display = "none"
 }
 
 function start() {
@@ -90,14 +92,16 @@ function bracketsCloseWhatIsThisPlace() {
       document.getElementById("bracket6Button1Text").innerText = "Home"
     }, 1700);
   setTimeout(function() {
-      document.getElementById("mainPage").style.display = "none"
+      closeAll()
       document.getElementById("whatIsThisPlacePage").style.display = "block"
     }, 3000);
   setTimeout(function() {
   bracketsOpen()
+  document.getElementById("tutorialScreen").style.display = "block"
     }, 3500);
     setTimeout(function() {
       document.getElementById("bracket6").style.animationName = "bracketClose"
+      bigBangTutorialFunction()
     }, 6000);
 }
 
@@ -123,7 +127,7 @@ function homeFromWhatIsThisPlace() {
     document.getElementById("bracket6Button1Text").innerText = "What Is This Place"
   }, 1700);
   setTimeout(function() {
-      document.getElementById("whatIsThisPlacePage").style.display = "none"
+      closeAll()
       document.getElementById("mainPage").style.display = "block"
     }, 3000);
   setTimeout(function() {
@@ -134,7 +138,21 @@ function homeFromWhatIsThisPlace() {
     }, 6000);
 }
 
-// start animation 
+// start animation
+
+function bigBangTutorialFunction() {
+  setTimeout(function() {
+    document.getElementById("bigBangTutorial").style.animationName = "bigBangAnimationBack"
+    setTimeout(function() {
+    document.getElementById("whatIsThisPlacePage").style.backgroundColor = "hotpink"
+    document.getElementById("tutorialScreen").style.backgroundColor = "hotpink"
+    document.getElementById("bigBangTutorial").style.display = "none"
+
+    document.getElementById("hydrogenTutorial").style.display = "block"
+    document.getElementById("afterBang").style.display = "block"
+    }, 11000);
+  }, 2000);
+}
 
 hydrogenDone = false
 
@@ -152,6 +170,8 @@ function startGame() {
   }, 2000);
 }
 
+var energy = 0
+
 var progDone = 0
 
 var progMax = 50
@@ -161,20 +181,20 @@ var clicks = 0
 var percentSign = "%"
 
 function clickAtom() {
+  energy += 1
   var progStr = (progInt * (100 / progMax)).toString()
   document.getElementById("progressBarText").innerText = `${clicks} / ${progMax}`
   document.getElementById("progressBar").style.backgroundImage = `linear-gradient(140deg, green 0% ${progStr + percentSign}, transparent ${progStr + percentSign} 100%)`
   if (progInt === progMax) {
+    progDone += 1
     hydrogenDone = true
     progInt = 0
     clicks = 0
-    if (progDone === 1) {
-      progDone += 1
+    if (progDone === 2) {
       progMax = 500
       document.getElementById("lithium").style.display = "block"
     }
-    if (progDone === 0) {
-      progDone += 1
+    if (progDone === 1) {
       progMax = 250
       document.getElementById("helium").style.display = "block"
     }
