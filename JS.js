@@ -17,6 +17,7 @@ function start() {
       }, 3500);
       setTimeout(function() {
         document.getElementById("bracket6").style.animationName = "bracketClose"
+        startGame()
       }, 6000);
 }
 function menu() {
@@ -131,4 +132,69 @@ function homeFromWhatIsThisPlace() {
     setTimeout(function() {
       document.getElementById("bracket6").style.animationName = "bracketClose"
     }, 6000);
+}
+
+// start animation 
+
+hydrogenDone = false
+
+function startGame() {
+  setTimeout(function() {
+    document.getElementById("bigBang").style.animationName = "bigBangAnimation"
+    setTimeout(function() {
+    document.getElementById("gamePage").style.backgroundColor = "white"
+    document.getElementById("screen").style.backgroundColor = "white"
+    document.getElementById("bigBang").style.display = "none"
+    setTimeout(function() {
+      document.getElementById("hydrogen").style.display = "block"
+      }, 2000);
+    }, 6000);
+  }, 2000);
+}
+
+var progDone = 0
+
+var progMax = 50
+var progInt = 0
+var clicks = 0
+
+var percentSign = "%"
+
+function clickAtom() {
+  var progStr = (progInt * (100 / progMax)).toString()
+  document.getElementById("progressBarText").innerText = `${clicks} / ${progMax}`
+  document.getElementById("progressBar").style.backgroundImage = `linear-gradient(140deg, green 0% ${progStr + percentSign}, transparent ${progStr + percentSign} 100%)`
+  if (progInt === progMax) {
+    hydrogenDone = true
+    progInt = 0
+    clicks = 0
+    if (progDone === 1) {
+      progDone += 1
+      progMax = 500
+      document.getElementById("lithium").style.display = "block"
+    }
+    if (progDone === 0) {
+      progDone += 1
+      progMax = 250
+      document.getElementById("helium").style.display = "block"
+    }
+  }
+}
+
+function clickHydrogen() {
+  progInt += 1
+  clicks += 1
+  clickAtom()
+}
+
+function clickHelium() {
+  progInt += 2
+  clicks += 2
+  clickAtom()
+}
+
+function clickLithium() {
+  progInt += 3
+  clicks += 3
+  clickAtom()
 }

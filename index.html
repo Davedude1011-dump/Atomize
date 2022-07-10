@@ -21,15 +21,7 @@ hmmm something to do with science / atoms / compounds
     </div>
 
 
-    <div id="bracket6">
-            <img id="mainLogo" src="images\AtomizeAtomGif.gif" onclick="menu()">
-            <div id="bracket6Button1" onclick="bracketsCloseWhatIsThisPlace()" class="whatIsThisPlace">
-                <div class="centerText" id="bracket6Button1Text">What Is This Place?</div>
-            </div>
-        </div>
-    <div id="whatIsThisPlacePage">
 
-    </div>
 
     <div id="mainPage">
         <div onclick="start()" class="atomizeThumbnail">
@@ -47,19 +39,42 @@ hmmm something to do with science / atoms / compounds
             <div class="bigText">Quit</div>
         </div>
     </div>
+    <div id="whatIsThisPlacePage">
+
+    </div>
 
     <div id="gamePage">
-        <div class="screen">
-            <div class="hydrogen">
+        <div id="screen">
+            <div id="bigBang"></div>
+            <div id="hydrogen" class="hydrogen" onclick="clickHydrogen()">
                 <img class="HydrogenImg" src="images/Hydrogen.png">
                 <div class="center atomId">H</div>
             </div>
+            <div id="helium" class="helium" onclick="clickHelium()">
+                <img class="HeliumImg" src="images/Helium.png">
+                <div class="center atomId">He</div>
+            </div>
+            <div id="lithium" class="lithium" onclick="clickLithium()">
+                <img class="LithiumImg" src="images/Lithium.png">
+                <div class="center atomId">Li</div>
+            </div>
         </div>
     </div>
-        <div id="bracket1"></div>
-        <div id="bracket2"></div>
-        <div id="bracket3"></div>
-        <div id="bracket4"></div>
-        <div id="bracket5"></div>
+
+    <div id="bracket6">
+        <img id="mainLogo" src="images\AtomizeAtomGif.gif" onclick="menu()">
+        <div id="progressBar">
+            <div id="progressBarText" class="center">0 / 50</div>
+        </div>
+        <div id="bracket6Button1" onclick="bracketsCloseWhatIsThisPlace()" class="whatIsThisPlace">
+            <div class="centerText" id="bracket6Button1Text">What Is This Place?</div>
+        </div>
+    </div>
+
+    <div id="bracket1"></div>
+    <div id="bracket2"></div>
+    <div id="bracket3"></div>
+    <div id="bracket4"></div>
+    <div id="bracket5"></div>
     </body>
 </html>
